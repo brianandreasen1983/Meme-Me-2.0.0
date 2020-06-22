@@ -20,7 +20,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     // Actions
+    
     @IBAction func pickAnImageFromLibrary(_ sender: Any) {
         pickFromSource(.photoLibrary)
         present(pickerController, animated: true, completion: nil)
@@ -68,8 +72,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButtons(.disabled)
-        styleTextField(topTextField, "TOP")
-        styleTextField(bottomTextField, "BOTTOM")
+        styleTextField(topTextField, "ENTER TOP TEXT")
+        styleTextField(bottomTextField, "ENTER BOTTOM TEXT")
         
     }
     
@@ -98,8 +102,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedString.Key.strokeWidth: NSNumber.init(value: 3.0)
-            
+            NSAttributedString.Key.strokeWidth: NSNumber.init(value: -2.5)
         ]
         
         textField.text = defaultText
@@ -172,14 +175,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func save() {
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
-        
-//        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
-        
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
-        
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image!, memedImage: generateMemedImage())
+            
+         let object = UIApplication.shared.delegate
+         let appDelegate = object as! AppDelegate
+         appDelegate.memes.append(meme)
     }
     
     func configureButtons(_ buttonState: ButtonState) {

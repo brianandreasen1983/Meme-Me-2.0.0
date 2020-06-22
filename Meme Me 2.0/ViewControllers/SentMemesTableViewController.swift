@@ -6,25 +6,42 @@
 //  Copyright © 2020 Brian Andreasen. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class SentMemesTableViewController: UITableViewController {
+    
+    var memes: [Meme]! {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.memes
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.memes.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "MemeCell"
+        let meme = memes[indexPath.row]
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MemeCell else {
+            fatalError("It's broken")
+        }
+        
+        
+        cell.memeImageView.image = meme.memedImage
+        cell.memeLabel.text = meme.topText + "" + meme.bottomText
+                
+        return cell
+    }
 }
