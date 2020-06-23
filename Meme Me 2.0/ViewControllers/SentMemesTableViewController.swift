@@ -35,12 +35,11 @@ class SentMemesTableViewController: UITableViewController {
         let meme = memes[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MemeCell else {
-            fatalError("It's broken")
+            fatalError("An issue has occurred.")
         }
         
-        
         cell.memeImageView.image = meme.memedImage
-        cell.memeLabel.text = meme.topText + "" + meme.bottomText
+        cell.memeLabel.text = meme.topText + " " + meme.bottomText
                 
         return cell
     }

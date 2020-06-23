@@ -406,12 +406,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1la-Fw-WtT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1la-Fw-WtT">
                                 <rect key="frame" x="51" y="263" width="313" height="370"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="safeArea" id="upV-w3-4J9"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1la-Fw-WtT" firstAttribute="centerX" secondItem="5Us-hV-rBz" secondAttribute="centerX" id="AZT-d9-hrp"/>
+                            <constraint firstItem="1la-Fw-WtT" firstAttribute="centerY" secondItem="5Us-hV-rBz" secondAttribute="centerY" id="Pvl-t7-XIW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5Us-hV-rBz"/>
                     </view>
                     <navigationItem key="navigationItem" id="c17-uP-XQz"/>

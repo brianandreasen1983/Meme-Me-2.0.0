@@ -24,7 +24,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
         let space: CGFloat = 3.0
         let dimension = (view.frame.size.width  - (2 * space )) / 3.0
         
-        //MARK -- Implement flow layout
         flowLayout.minimumLineSpacing = space
         flowLayout.minimumInteritemSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
@@ -38,7 +37,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return self.memes.count
     }
     
-    // MARK -- Review this code...
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let meme = memes[indexPath.row]
         
@@ -49,7 +47,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return cell!
     }
     
-    // MARK -- TODO: Implement detail view controller when an item is selected.
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
