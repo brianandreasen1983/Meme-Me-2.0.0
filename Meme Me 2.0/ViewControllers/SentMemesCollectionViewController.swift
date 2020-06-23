@@ -22,12 +22,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-//        let dimension = (view.frame.size.width  - (2 * space ) / 3.0)
         let dimension = (view.frame.size.width  - (2 * space )) / 3.0
-
-        
-        // print(dimension) 373
-        print(dimension)
         
         //MARK -- Implement flow layout
         flowLayout.minimumLineSpacing = space
@@ -40,23 +35,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(self.memes.count)
         return self.memes.count
     }
     
+    // MARK -- Review this code...
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cellIdentifier = "MemeCollectionViewCell"
-//        let meme = memes[indexPath.row]
-//
-//
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MemeCollectionViewCell
-//
-//        cell.memeImageView?.image = meme.memedImage
-//
-//        return cell
-        
-        // MARK -- improve this code
-        
         let meme = memes[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as? MemeCollectionViewCell
@@ -64,5 +47,14 @@ class SentMemesCollectionViewController: UICollectionViewController {
         cell?.memeImageView.image = meme.memedImage
         
         return cell!
+    }
+    
+    // MARK -- TODO: Implement detail view controller when an item is selected.
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        
+        self.navigationController!.pushViewController(detailController, animated: true)
+        
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
     }
 }

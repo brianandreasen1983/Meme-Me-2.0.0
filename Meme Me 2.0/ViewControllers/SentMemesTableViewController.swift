@@ -44,4 +44,13 @@ class SentMemesTableViewController: UITableViewController {
                 
         return cell
     }
+    
+    // MARK -- TODO: Implement detail view controller when an item is selected.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        
+        self.navigationController!.pushViewController(detailController, animated: true)
+        
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+    }
 }

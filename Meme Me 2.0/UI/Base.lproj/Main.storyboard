@@ -398,6 +398,31 @@
             </objects>
             <point key="canvasLocation" x="-952.17391304347836" y="161.38392857142856"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="Ycq-ag-owk">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="UjE-4Q-P4C" customClass="MemeDetailViewController" customModule="Meme_Me_2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QRC-md-Gp2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1la-Fw-WtT">
+                                <rect key="frame" x="51" y="263" width="313" height="370"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5Us-hV-rBz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="c17-uP-XQz"/>
+                    <connections>
+                        <outlet property="imageView" destination="1la-Fw-WtT" id="aXJ-If-AGA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SKi-mZ-Lfa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-97.101449275362327" y="161.38392857142856"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="TyX-cC-BMp"/>
